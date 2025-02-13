@@ -1,0 +1,24 @@
+# Python virtual environments
+venv/
+venv310/
+venv310_new/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Model files and large data
+*.pth
+*.wav
+*.zip
+
+# Logs
+detection_logs/
+yamnet_logs/
+sound_detection_logs/
+
+# VS Code
+*.code-workspace
+.vscode/
+
+# PyCharm
+.idea/ 

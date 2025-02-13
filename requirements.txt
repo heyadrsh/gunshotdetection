@@ -1,0 +1,9 @@
+numpy==1.24.3
+librosa==0.10.1
+tensorflow==2.13.0
+tensorflow-hub==0.14.0
+sounddevice==0.4.6
+keyboard==0.13.5
+torch==2.1.0
+torchaudio==2.1.0
+PyQt5==5.15.9 

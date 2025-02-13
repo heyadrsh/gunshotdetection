@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Gunshot Detection System</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50">
+    <div class="min-h-screen">
+        <!-- Header Section -->
+        <header class="bg-white shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 py-6">
+                <h1 class="text-3xl font-bold text-blue-600">Advanced Gunshot Detection System</h1>
+                <div id="statusBadge" class="mt-4 px-4 py-2 rounded-lg bg-gray-100 text-gray-700 inline-block">
+                    System Ready - Click Start to Begin Monitoring
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-7xl mx-auto px-4 py-6">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <!-- Detection History Panel -->
+                <div class="lg:col-span-2 bg-white rounded-lg shadow-md p-6">
+                    <h2 class="text-xl font-semibold text-blue-600 mb-4">Detection History</h2>
+                    <div id="detectionHistory" class="h-96 overflow-y-auto bg-gray-50 rounded-lg p-4 font-mono text-sm">
+                    </div>
+                </div>
+
+                <!-- Right Panel -->
+                <div class="space-y-6">
+                    <!-- Gun Classification -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-blue-600 mb-4">Gun Classification</h2>
+                        <div id="gunTypeLabel" class="p-4 bg-gray-50 rounded-lg text-center mb-4">
+                            Awaiting Detection...
+                        </div>
+                        <div id="probabilityChart" class="h-48">
+                            <canvas id="gunProbChart"></canvas>
+                        </div>
+                    </div>
+
+                    <!-- Live Audio Analysis -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-blue-600 mb-4">Live Audio Analysis</h2>
+                        <div id="currentSounds" class="bg-gray-50 rounded-lg p-4 h-32 overflow-y-auto">
+                        </div>
+                    </div>
+
+                    <!-- Audio Visualization -->
+                    <div class="bg-white rounded-lg shadow-md p-6">
+                        <h2 class="text-xl font-semibold text-blue-600 mb-4">Audio Waveform</h2>
+                        <canvas id="audioVisualizer" class="w-full h-24 bg-gray-50 rounded-lg"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Control Panel -->
+            <div class="mt-6 flex justify-center space-x-4">
+                <button id="startButton" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                    Start Detection
+                </button>
+                <button id="stopButton" class="px-6 py-3 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-700 transition-colors" disabled>
+                    Stop Detection
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Microphone Permission Modal -->
+    <div id="micPermissionModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+        <div class="bg-white rounded-lg p-8 max-w-md">
+            <h2 class="text-2xl font-bold mb-4">Microphone Access Required</h2>
+            <p class="mb-6">This application needs access to your microphone for gunshot detection. Please allow microphone access when prompted.</p>
+            <button id="micPermissionBtn" class="px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                Continue
+            </button>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html> 
